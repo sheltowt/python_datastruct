@@ -1,3 +1,8 @@
+# depth first search
+# search all elements to the fullest first
+# fo all the way to a leaf node first
+# go back to the nearest ancestor
+
 graph = {'A': set(['B', 'C']),
          'B': set(['A', 'D', 'E']),
          'C': set(['A', 'F']),
