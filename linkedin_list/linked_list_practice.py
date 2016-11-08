@@ -1,31 +1,45 @@
-class Node(object):
+# node
+# has data
+# has next node
 
-    def __init__(self, data=None, next_node=None):
-        self.data = data
-        self.next_node = next_node
+# get_data
+# get_next
+# set_next
 
-    def get_data(self):
-        return self.data
+class Node:
+	def __init__(self, data=None, next_node=None):
+		self.data = data
+		self.next = next_node
 
-    def get_next(self):
-        return self.next_node
+	def get_data(self):
+		return self.data
 
-    def set_next(self, new_next):
-        self.next_node = new_next
+	def get_next(self):
+		return self.next
 
+	def set_next(self, node):
+		self.next = node
 
-class LinkedList(object):
-	def __init__(self, head=None):
-		self.head = head
+# linked_list
+# has a head
+
+# insert
+# size
+# search
+# delete
+
+class LinkedList:
+	def __init__(self):
+		self.head = None
 
 	def insert(self, data):
-		new_node = Node(data)
-		new_node.set_next(self.head)
-		self.head = new_node
+		node = Node(data)
+		node.set_next(self.head)
+		self.head = node
 
 	def size(self):
-		current = self.head
 		count = 0
+		current = self.head
 		while current:
 			count += 1
 			current = current.get_next()
@@ -33,29 +47,40 @@ class LinkedList(object):
 
 	def search(self, data):
 		current = self.head
-		found = False
-		while current and found is False:
-			if current.get_data() == data:
-				found = True
-			else:
-				current = current.get_next()
-		if current is None:
-			raise ValueError("data not in list")
-		return current
+		while current:
+			d = current.get_data()
+			if d == data:
+				return True
+			current = current.get_next()
+		return False		
+
 
 	def delete(self, data):
 		current = self.head
 		previous = None
-		found = False
-		while current and found is False:
-			if current.get_data() == data:
-				found = True
-			else:
-				previous = current
-				current = current.get_next()
-		if current is None:
-			raise ValueError("Data not in list")
-		if previous is None:
-			self.head = current.get_next()
-		else:
-			previous.set_next(current.get_next())
+		while current:
+			d = current.get_data()
+			if d == data:
+				if previous == None:
+					self.head = current.get_next()
+					return
+				else:
+					previous.set_next(current.get_next())
+			current = current.get_next()
+
+if __name__ == '__main__':
+	
+	l = LinkedList()
+	l.insert("a")
+	print l.size()
+
+	l.insert("b")
+
+	l.delete("a")
+
+	print l.size()
+
+
+
+
+

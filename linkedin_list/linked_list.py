@@ -1,17 +1,28 @@
-class Node(object):
+'''
+data
+next_node
 
-    def __init__(self, data=None, next_node=None):
-        self.data = data
-        self.next_node = next_node
+get_data
+get_next
+set_next
+'''
 
-    def get_data(self):
-        return self.data
 
-    def get_next(self):
-        return self.next_node
+class Node():
 
-    def set_next(self, new_next):
-        self.next_node = new_next
+	def __init__(self, data=None, next_node=None):
+		self.data = data
+		self.next_node = next_node
+
+	def get_data(self):
+		return self.data
+
+	def get_next(self):
+		return self.next_node
+
+	def set_next(self, node):
+		self.next_node = node
+
 
 
 class LinkedList(object):

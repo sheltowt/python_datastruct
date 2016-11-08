@@ -1,3 +1,5 @@
+# basically vertes has an id, and then a dictionary of adjacent nodes
+
 class Vertex:
     def __init__(self, node):
         self.id = node
@@ -17,6 +19,8 @@ class Vertex:
 
     def get_weight(self, neighbor):
         return self.adjacent[neighbor]
+
+# 
 
 class Graph:
     def __init__(self):
