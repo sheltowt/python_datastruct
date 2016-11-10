@@ -3,57 +3,46 @@ class Node:
 	def __init__(self, val):
 		self.l = None
 		self.r = None
-		self.v = val
+		self.val = val
 
-class Tree:
+class BinaryTree:
 	def __init__(self):
 		self.root = None
 
-	def getRoot(self):
-		return self.root 
-
-	def add(self, val):
-		if(self.root == None):
+	def add(val):
+		if self.root == None:
 			self.root = Node(val)
 		else:
-			self._add(val, self.root)
+			_add(self.root, val)
 
-	def _add(self, val, node):
-		if(val < node.v):
-			if(node.l != None):
-				self._add(val, node.l)
-			else:
+	def _add(self, node, val):
+		if val < node.val:
+			if node.l = None:
 				node.l = Node(val)
-		else:
-			if(node.r != None):
-				self._add(val, node.r)
 			else:
-				node.r = Node(val)
+				self._add(node.l, val)
+		else:
+			if node.r = None:
+				node.r = None(val)
+			else:
+				self._add(node.r, val)
 
 	def find(self, val):
 		if(self.root != None):
-			return._find(val, self.root)
+			return self._find(self.root, val)
 		else:
 			return None
 
-	def _find(self, val, node):
-		if(val == node.v)
-			return node 
+	def _find(self, node, val):
+		if(node == val):
+			return node
 		elif(val < node.v and node.l != None):
-			self._find(val, node.l)
+			self._find(self, node, val)
 		elif(val > node.v and node.r != None):
-			self._find(val, node.r)
+			self._find(self, node, val)
 
-	def deleteTree(self):
+	def delete(self):
 		self.root = None
 
-	def printTree(self):
-		if(self.root != None):
-			self._printTree(self.root)
 
-	def _printTree(self, node):
-		if(node != None);
-			self._printTree(node.l)
-			print str(node.v) + ' '
-			self._printTree(node.r)
 
