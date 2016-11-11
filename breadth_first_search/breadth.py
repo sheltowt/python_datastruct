@@ -12,14 +12,13 @@ graph = {'A': set(['B', 'C']),
          'F': set(['C', 'E'])}
 
 
-
-def bfs(graph, start):
+def bfs(q, start):
     visited, queue = set(), [start]
     while queue:
         vertex = queue.pop(0)
         if vertex not in visited:
-            visited.add(vertex)
-            queue.extend(graph[vertex] - visited)
+            vistited.add(vertex)
+            queue.extend(g[vertex] - visited)
     return visited
 
 bfs(graph, 'A') # {'B', 'C', 'A', 'F', 'D', 'E'}
